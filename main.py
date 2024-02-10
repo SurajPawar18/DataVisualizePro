@@ -11,6 +11,9 @@ st.set_page_config(page_title="DataVision Pro", layout="centered", page_icon="ðŸ
 # Title
 st.title("ðŸ“Š DataVision Pro App")
 
+# Image
+st.image("dv.jpg")
+
 # Get the working directory of the main.py
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -54,7 +57,7 @@ if selected_file:
         # User selection of plot type
         selected_plot = st.selectbox("Select the plot", options=plot_list, index=None)
 
-# Button to generate plots
+    # Button to generate plots
 if st.button("Generate Plot"):
     # Create a matplotlib figure and axis
     fig, ax = plt.subplots(figsize=(8, 6))
@@ -115,12 +118,12 @@ if st.button("Generate Plot"):
         # Display the plot in Streamlit
         st.pyplot(fig)
 
-# Show data summary
+    # Show data summary
 if st.button("Show Data Summary"):
     st.subheader("Data Summary:")
     st.write(df.describe())
 
-# Allow data filtering
+    # Allow data filtering
 if st.checkbox("Enable Data Filtering"):
     # Example: Add sliders for numeric columns
     numeric_columns = df.select_dtypes(include=['number']).columns.tolist()
